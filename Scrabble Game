@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SCRABBLE</title>
+    <style>
+        div{
+        background-color: rgb(173, 196, 173);
+        width:50px;
+        height:30px;
+        background-position: center;
+        margin-top: 20px;
+        color: blanchedalmond;
+    }
+
+    .letters{
+        background-image: url(background.jpg);
+        background-repeat: no-repeat;
+        width:20%;
+        height:30%;
+        margin-top: 20px;
+    }
+    
+    body{
+        background-image: url(background.jpg);
+        background-size: cover;
+    }
+        
+        
+        </style>
+</head>
+
+<body>
+    <center>
+        <div class="letters">
+            <p><b>SCRABBLE</b></p>
+
+            <centre> <input type="text" id="inputvalue" />
+                <button id="btn">CLICK ME</button>
+                <div>
+                    <p id="answer">
+                    </p>
+            </centre>
+        </div>
+    </center>
+    <script>
+        var alphabets = {
+            'A': 1, 'B': 3, 'C': 3, 'D': 2, 'E': 1, 'F': 4, 'G': 2, 'H': 4, 'I': 1, 'J': 8, 'K': 5, 'L': 1, 'M': 3, 'N': 1, 'O': 1,
+            'P': 3, 'Q': 10, 'R': 1, 'S': 1, 'T': 1, 'U': 1, 'V': 4, 'W': 4, 'X': 8, 'Y': 4, 'Z': 10
+        }
+        document.getElementById('btn').addEventListener('click', function () {
+            var inputValue = document.getElementById('inputvalue').value;
+            var answerField = document.getElementById('answer')
+            var inputArray = inputValue.toUpperCase().split('');
+            var totalScore = inputArray.reduce((accumulator, currentValue) => {
+                accumulator += alphabets[currentValue]
+                return accumulator;
+            }, 0)
+            console.log(totalScore)
+            answerField.innerText = totalScore;
+        })
+
+    </script>
+    </div>
+
+</body>
+
+</html>
